@@ -17,6 +17,11 @@ angular.module('kingaFrontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitiz
         url: '/contact',
         templateUrl: 'app/contact/contact.html',
         controller: 'ContactCtrl'
+      })
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'app/login/login.html',
+        controller: 'LoginCtrl'
       });
 
 

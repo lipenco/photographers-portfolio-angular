@@ -1,0 +1,34 @@
+
+<div class="small-4 small-centered columns" ng-hide='isAuthenticated()' >
+<form role="form" class="form-horizontal" ng-controller="LoginCtrl" ng-submit="attemptLogin()"
+      action="chrome-password-manager-fix.html" method="post" target="chrome-password-manager-fix">
+      <div class="form-group">
+          <div class="errors col-sm-offset-3 col-sm-6">
+              <div class="tip">{{ loginError }}</div>
+          </div>
+      </div>
+      <div class="form-group">
+          <label for="username" class="col-sm-3">USERNAME</label>
+          <div class="col-sm-6 input-icon-wrapper">
+              <input id="username" type="text" class="form-control" ng-model="username" ng-disabled="asyncLogin.isLoading()">
+              <i class="icon icon-user"></i>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="errors col-sm-12"></div>
+      </div>
+      <div class="form-group" >
+          <label for="username" class="col-sm-3">PASSWORD</label>
+          <div class="col-sm-6 input-icon-wrapper">
+              <input id="password" type="text" class="form-control" ng-model="password" ng-disabled="asyncLogin.isLoading()">
+              <i class="icon icon-password"></i>
+          </div>
+      </div>
+      <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-6">
+              <button type="submit" class="btn btn-default" ng-disabled="asyncLogin.isLoading()">{{asyncLogin.isLoading() ? 'Logging in...' : 'Log in'}}</button>
+          </div>
+      </div>
+  </form>
+
+</div>
