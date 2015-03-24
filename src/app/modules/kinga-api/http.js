@@ -1,6 +1,6 @@
 "use strict";
 var api = angular.module('kingaApi');
-console.log("hreere1")
+
 api.service('http', function($http) {
   var http = {};
 

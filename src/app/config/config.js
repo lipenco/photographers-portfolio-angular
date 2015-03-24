@@ -1,3 +1,3 @@
 window.Options = {
-  API_SERVER: 'http://api.michalska_api.dev',
+  API_SERVER: 'http://localhost:3000/',
 };

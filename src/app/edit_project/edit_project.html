@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="row">
+    <div class="container small-4 columns">
+      <div class="row">
+        <div class="large-12 columns" ng-repeat="project in projects">
+          <div class="th">
+            <img class="right" ng-src="assets/images/{{project.logo}}" alt="{{project.title}}">
+            <div class="caption">
+              <h3>{{project.title}}</h3>
+              <p>{{project.description}}</p>
+            </div>
+            <button ng-click="delete(project)">delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

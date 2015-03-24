@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('kingaFrontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router', 'kingaApi'])
+angular.module('kingaFrontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router',  'kingaApi'])
   .config(function ($httpProvider, $stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {
@@ -22,9 +22,16 @@ angular.module('kingaFrontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitiz
         url: '/admin',
         templateUrl: 'app/login/login.html',
         controller: 'LoginCtrl'
+      })
+      .state('editProject', {
+        url: '/edit_project',
+        templateUrl: 'app/edit_project/edit_project.html',
+        controller: 'EditCtrl'
       });
 
 
     $urlRouterProvider.otherwise('/');
+
+    $httpProvider.defaults.headers.common.Authorization = localStorage.getItem('auth_token');
   })
 ;
