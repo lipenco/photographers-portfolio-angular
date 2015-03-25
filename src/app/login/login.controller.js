@@ -7,21 +7,11 @@ angular.module('kingaFrontend')
     $scope.loginError = null;
 
     if (localStorage.getItem('auth_token')) {
-      $state.go('editProject', {
-
-      });
+      $state.go('editProject');
     }
 
-    $scope.isAuthenticated = function() {
-      if (localStorage.getItem('auth_token')) {
-        return true
-      } else {
-        return false
-      }
-    }
 
     $scope.attemptLogin = function() {
-      console.log("attempt login")
       $scope.asyncLogin();
       return true;
     };
@@ -40,9 +30,7 @@ angular.module('kingaFrontend')
         kingaApi.User.getToken(params)
         .success(function(response) {
           localStorage.setItem('auth_token', response.user.auth_token)
-          $state.go('edit', {
-
-          });
+          $state.go('editProject');
         }).error(function(body, status) {
 
         });

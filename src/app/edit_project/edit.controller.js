@@ -6,7 +6,9 @@ angular.module('kingaFrontend')
 
     $scope.delete = function(project) {
       kingaApi.Project.delete(project)
-
+      .success(function (response) {
+        $scope.projects.splice( $scope.projects.indexOf(project), 1 );
+      });
     }
 
     kingaApi.Project.getAllProjects()

@@ -32,7 +32,14 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
         templateUrl: 'app/edit_project/edit_project.html',
         controller: 'EditCtrl',
         authenticate: true
+      })
+      .state('addNewProject', {
+        url: '/add_project',
+        templateUrl: 'app/add_project/add_project.html',
+        controller: 'AddProjectCtrl',
+        authenticate: true
       });
+
 
 
     $urlRouterProvider.otherwise('/');
@@ -40,12 +47,15 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
     $httpProvider.defaults.headers.common.Authorization = localStorage.getItem('auth_token');
 });
 
-
 kingaFrontend.run(function($rootScope, $state){
+
 
   $rootScope.$on('$stateChangeSuccess', function(event, toState, toParams, fromState, fromParams){
     if(toState.authenticate && !localStorage.getItem('auth_token')) {
         $state.go('admin');
     }
   });
+
+  // FlashMessages.dismissAll();
+
 });
