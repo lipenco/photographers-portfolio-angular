@@ -33,38 +33,21 @@ angular.module('kingaFrontend')
           $scope.loginError = "Username and password cannot be blank.";
           return;
         }
+        var params = {
+          email: 'magda@gmail.com',
+          password: '12345678'
+        }
+        kingaApi.User.getToken(params)
+        .success(function(response) {
+          localStorage.setItem('auth_token', response.user.auth_token)
+          $state.go('edit', {
 
-        // rails core issue
-        // $http.post(Options.API_SERVER + '/sessions', {
-        //   email: 'magda@gmail.com',
-        //   password: '12345678'
-        // }).success(function(response) {
-        //   console.log('lalal')
-        //   localStorage.setItem('auth_token', response.user.auth_token)
-        //   // $state.go('edit', {
-        //   //
-        //   // });
-        // }).error(function(body, status) {
-        //
-        // });
+          });
+        }).error(function(body, status) {
 
-        return $.ajax({
-          type: "POST",
-          url: Options.API_SERVER + '/sessions',
-          data: {'email': 'magda@gmail.com', 'password': '12345678' },
-          success: function (response) {
-            localStorage.setItem('auth_token', response.user.auth_token)
-            $state.go('home', {
-
-              });
-          },
-          error: function(response){
-            switch(response && response.code) {
-              default:
-                console.log("error", response )
-              }
-          }
         });
+
+
 
       };
 

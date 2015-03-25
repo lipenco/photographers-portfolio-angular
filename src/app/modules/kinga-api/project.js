@@ -13,24 +13,8 @@ api.service('Project', function(http) {
   };
 
   Project.delete = function(params) {
-    $.ajax({
-      type: "DELETE",
-      url: Options.API_SERVER + 'projects/' + params.id ,
-      headers: {
-        Authorization:   localStorage.getItem('auth_token')
-      },
-      // data: {'email': 'magda@gmail.com', 'password': '12345678' },
-      success: function (response) {
-        console.log(response)
-
-      },
-      error: function(response){
-        switch(response && response.code) {
-          default:
-            console.log("error", response )
-          }
-    }
-  });
+    console.log("herere")
+    return http.delete('projects/'+ params.id);
   }
 
   return Project;

@@ -5,7 +5,7 @@ angular.module('kingaFrontend')
   .controller('EditCtrl', function ($scope, $http, kingaApi) {
 
     $scope.delete = function(project) {
-      $http.delete(Options.API_SERVER + 'projects/' + project.id);
+      kingaApi.Project.delete(project)
 
     }
 
