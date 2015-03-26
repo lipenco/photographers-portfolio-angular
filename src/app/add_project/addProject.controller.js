@@ -8,6 +8,9 @@ angular.module('kingaFrontend')
     $scope.thumbnail = null
     $scope.decription = null
     $scope.project_date = null
+    $scope.projectExist = function() {
+      return true;
+    }
 
     $scope.attemptSave = function() {
       $scope.asyncSave();
@@ -31,7 +34,9 @@ angular.module('kingaFrontend')
       kingaApi.Project.create(params)
       .success(function(response) {
         // $state.go('editProject');
-        console.log("creted", response)
+        $scope.project_id = response.id
+        $scope.projectExist = false
+
       }).error(function(body, status) {
 
       });

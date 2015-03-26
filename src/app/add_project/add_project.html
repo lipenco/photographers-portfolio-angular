@@ -1,6 +1,13 @@
-<div class="small-4 small-centered columns" >
-<form role="form" class="form-horizontal" ng-controller="AddProjectCtrl" ng-submit="attemptSave()"
+<div class="small-4 small-centered columns"  ng-controller="AddProjectCtrl">
+
+  <p ng-bind="title"></p>
+  <img src="{{ thumbnail }}">
+  <p>{{ decription }}</p>
+
+
+<form ng-show="projectExist()" role="form" class="form-horizontal"  ng-submit="attemptSave()"
        method="post">
+
       <div class="form-group">
           <div class="errors col-sm-offset-3 col-sm-6">
               <div class="tip">{{ loginError }}</div>
@@ -30,5 +37,11 @@
           </div>
       </div>
   </form>
+
+
+
+
+
+
 
 </div>
