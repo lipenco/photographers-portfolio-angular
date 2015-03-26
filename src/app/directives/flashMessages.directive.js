@@ -1,10 +1,10 @@
 "use strict";
 var kf = angular.module('kingaFrontend');
 
-kf.directive('FlashMessages', function() {
+kf.directive('flashMessages', function() {
   return {
     restrict: 'E',
-    templateUrl: 'directives/flash-message-container.html',
+    templateUrl: 'app/directives/flash-message-container.html',
     controller: 'FlashMessageCtrl'
   };
 });

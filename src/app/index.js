@@ -56,6 +56,6 @@ kingaFrontend.run(function($rootScope, $state){
     }
   });
 
-  // FlashMessages.dismissAll();
+
 
 });
