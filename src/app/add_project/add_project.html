@@ -1,9 +1,14 @@
-<div class="small-4 small-centered columns"  ng-controller="AddProjectCtrl">
-
+<div ng-controller="AddProjectCtrl" class="row">
+<div class="small-4 columns">
   <p ng-bind="title"></p>
   <img src="{{ thumbnail }}">
   <p>{{ decription }}</p>
+  <div  ng-repeat="photo in photos">
+    <img src="{{ photo.url }}">
+  </div>
+</div>
 
+<div class="small-4 columns">
 
 <form ng-show="projectExist()" role="form" class="form-horizontal"  ng-submit="attemptSave()"
        method="post">
@@ -38,10 +43,38 @@
       </div>
   </form>
 
+  <button ng-hide="projectExist()" ng-click="addPhoto()">Add Photo</button>
 
+</div>
 
+  <div class="small-4 columns" ng-show="showPhotoInput()" >
 
+    <form  role="form" class="form-horizontal"  ng-submit="attemptSavePhoto()"
+           method="post">
 
+          <div class="form-group">
+              <div class="errors col-sm-offset-3 col-sm-6">
+                  <div class="tip">{{ photoError }}</div>
+              </div>
+          </div>
+          <div class="form-group">
+              <label for="username" class="col-sm-3">URL</label>
+              <div class="col-sm-6 input-icon-wrapper">
+                  <input id="url" type="text" class="form-control" ng-model="url" ng-disabled="">
+              </div>
+          </div>
+          <div class="form-group" >
+              <label for="username" class="col-sm-3">Horizontal</label>
+              <div class="col-sm-6 input-icon-wrapper">
+                  <input id="horizontal" type="text" class="form-control" ng-model="horizontal" ng-disabled="">
+              </div>
+          </div>
 
-
+          <div class="form-group">
+              <div class="col-sm-offset-3 col-sm-6">
+                  <button type="submit" class="btn btn-default" ng-disabled="">Save Photo</button>
+              </div>
+          </div>
+      </form>
+  </div>
 </div>

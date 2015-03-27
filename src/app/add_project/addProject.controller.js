@@ -4,16 +4,26 @@
 angular.module('kingaFrontend')
   .controller('AddProjectCtrl', function ($scope, $http, kingaApi) {
 
-    $scope.title = null
-    $scope.thumbnail = null
-    $scope.decription = null
-    $scope.project_date = null
+    $scope.title = null;
+    $scope.thumbnail = null;
+    $scope.decription = null;
+    $scope.project_date = null;
+    $scope.url = null;
+    $scope.horizontal = null;
+    $scope.project_id = null;
+    $scope.photos = [];
+
     $scope.projectExist = function() {
       return true;
-    }
+    };
 
     $scope.attemptSave = function() {
       $scope.asyncSave();
+      return true
+    }
+
+    $scope.attemptSavePhoto = function() {
+      $scope.asyncSavePhoto();
       return true
     }
 
@@ -33,15 +43,39 @@ angular.module('kingaFrontend')
 
       kingaApi.Project.create(params)
       .success(function(response) {
-        // $state.go('editProject');
-        $scope.project_id = response.id
-        $scope.projectExist = false
+        $scope.project_id = response.project.id;
+        $scope.projectExist = false;
 
       }).error(function(body, status) {
 
       });
 
+    };
+
+    $scope.addPhoto = function() {
+      $scope.showPhotoInput = function() {
+        return true;
+      }
     }
+
+    $scope.asyncSavePhoto = function() {
+      var params = {
+        project_id : $scope.project_id,
+        url : $scope.url,
+        horizontal: $scope.horizontal
+      }
+      kingaApi.Photo.create(params)
+      .success(function(response) {
+        $scope.photos.push(response.photo);
+        $scope.showPhotoInput = false;
+        $scope.url = null;
+        $scope.horizontal = null;
+
+      }).error(function(body, status) {
+
+      });
+
+    };
 
 
 
