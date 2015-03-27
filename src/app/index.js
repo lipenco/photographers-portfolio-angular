@@ -38,7 +38,15 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
         templateUrl: 'app/add_project/add_project.html',
         controller: 'AddProjectCtrl',
         authenticate: true
+      })
+      .state('showProject',  {
+        url: '/project?id',
+        templateUrl: 'app/show_project/show_project.html',
+        controller: 'showProjectCtrl',
+        authenticate: false,
+        params: {'title': true, 'id': true, 'description' :true}
       });
+
 
 
 

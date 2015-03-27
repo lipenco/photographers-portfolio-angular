@@ -2,7 +2,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="large-4 columns" ng-repeat="project in projects">
+    <div class="large-4 columns" ng-repeat="project in projects" ui-sref="showProject(project)">
       <div class="th">
         <img class="right" ng-src="{{project.thumbnail}}" alt="{{project.title}}">
         <div class="caption">
