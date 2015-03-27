@@ -2,20 +2,34 @@
 'use strict';
 
 angular.module('kingaFrontend')
-  .controller('AddProjectCtrl', function ($scope, $http, kingaApi) {
+  .controller('AddProjectCtrl', function ($scope, $http,  $stateParams, kingaApi) {
 
-    $scope.title = null;
-    $scope.thumbnail = null;
-    $scope.decription = null;
-    $scope.project_date = null;
-    $scope.url = null;
-    $scope.horizontal = null;
-    $scope.project_id = null;
-    $scope.photos = [];
+    if ($stateParams.id != true) {
+      $scope.title = $stateParams.title;
+      $scope.thumbnail = $stateParams.thumbnail;
+      $scope.description = $stateParams.description;
+      $scope.project_date = $stateParams.project_date;
+      $scope.url = null;
+      $scope.horizontal = null;
+      $scope.project_id = $stateParams.id;
+      $scope.photos = $stateParams.photos;
+
+    } else {
+      $scope.title = null;
+      $scope.thumbnail = null;
+      $scope.description = null;
+      $scope.project_date = null;
+      $scope.url = null;
+      $scope.horizontal = null;
+      $scope.project_id = null;
+      $scope.photos = [];
+
+    }
 
     $scope.projectExist = function() {
       return true;
     };
+
 
     $scope.attemptSave = function() {
       $scope.asyncSave();
@@ -37,7 +51,7 @@ angular.module('kingaFrontend')
       var params = {
         title : $scope.title,
         thumbnail: $scope.thumbnail,
-        decription: $scope.decription,
+        description: $scope.description,
         project_date : $scope.project_date
       }
 
@@ -56,7 +70,18 @@ angular.module('kingaFrontend')
       $scope.showPhotoInput = function() {
         return true;
       }
-    }
+    };
+
+    $scope.deletePhoto = function(photo) {
+      photo.project_id = $scope.project_id
+      kingaApi.Photo.delete(photo)
+      .success(function(response) {
+        $scope.photos.splice( $scope.photos.indexOf(photo), 1 );
+      }).error(function(body, status) {
+
+      });
+
+    };
 
     $scope.asyncSavePhoto = function() {
       var params = {

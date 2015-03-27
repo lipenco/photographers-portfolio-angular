@@ -4,12 +4,10 @@ angular.module('kingaFrontend')
   .controller('MainCtrl', function ($scope, kingaApi) {
 
     kingaApi.Project.getAllProjects()
-      .success(
-      function (response) {
+      .success(function (response) {
         $scope.projects = response.projects
       })
-      .error(
-      function (response){
+      .error(function (response){
         switch(response && response.code) {
           default:
             console.log("error", response )

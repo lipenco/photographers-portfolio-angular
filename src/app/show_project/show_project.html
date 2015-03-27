@@ -1,1 +1,7 @@
-<p> show project</p>
+
+<h2> {{title}} </h2>
+<p> {{description}} </p>
+
+<div ng-repeat="photo in photos">
+ <img src={{photo.url}}>
+</div>

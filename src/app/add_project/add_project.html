@@ -1,10 +1,11 @@
-<div ng-controller="AddProjectCtrl" class="row">
+<div  class="row">
 <div class="small-4 columns">
   <p ng-bind="title"></p>
   <img src="{{ thumbnail }}">
   <p>{{ decription }}</p>
   <div  ng-repeat="photo in photos">
     <img src="{{ photo.url }}">
+    <button ng-click="deletePhoto(photo)">Delete</button>
   </div>
 </div>
 
@@ -33,7 +34,7 @@
       <div class="form-group" >
           <label for="username" class="col-sm-3">Description</label>
           <div class="col-sm-6 input-icon-wrapper">
-              <input id="decription" type="text" class="form-control" ng-model="decription" ng-disabled="asyncSave.isLoading()">
+              <input id="description" type="text" class="form-control" ng-model="description" ng-disabled="asyncSave.isLoading()">
           </div>
       </div>
       <div class="form-group">

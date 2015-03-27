@@ -12,12 +12,15 @@ api.service('Project', function(http) {
     return http.get('projects');
   };
 
+  Project.getProject = function(params) {
+    return http.get('projects/' + params);
+  };
+
   Project.create = function(params) {
     return http.post('projects', params)
   }
 
   Project.delete = function(params) {
-    console.log("herere")
     return http.delete('projects/'+ params.id);
   }
 
