@@ -18,5 +18,9 @@ api.service('http', function($http) {
     return $http.delete(Options.API_SERVER + path, data);
   };
 
+  http.update = function(path, data) {
+    return $http.put(Options.API_SERVER + path, data);
+  };
+
   return http;
 });

@@ -14,6 +14,16 @@ api.service('Photo', function(http) {
     return http.delete('projects/'+ params.project_id + '/photos/' + params.id);
   };
 
+  Photo.setUpFeatured = function(params) {
+    console.log("gere")
+    return http.update('projects/'+ params.project_id + '/photos/' + params.id, params );
+  };
+
+  Photo.getFeaturedPhotos = function() {
+    return http.get('featured');
+  };
+
+
   Photo.getPhotos = function(params) {
     return http.get('projects/'+ params + '/photos');
 

@@ -8,9 +8,9 @@ api.service('Project', function(http) {
     return http.get('projects');
   };
 
-  Project.getFeaturedProjects = function(params) {
-    return http.get('projects');
-  };
+  // Project.getFeaturedProjects = function(params) {
+  //   return http.get('featured');
+  // };
 
   Project.getProject = function(params) {
     return http.get('projects/' + params);

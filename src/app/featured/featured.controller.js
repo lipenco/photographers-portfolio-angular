@@ -3,13 +3,12 @@
 angular.module('kingaFrontend')
   .controller('FeaturedCtrl', function ($scope, kingaApi) {
 
-    kingaApi.Project.getFeaturedProjects()
+    kingaApi.Photo.getFeaturedPhotos()
       .success(
       function (response) {
-        $scope.projects = response.projects
+        $scope.photos = response.photos
       })
-      .error(
-      function (response){
+      .error(function (response){
         switch(response && response.code) {
           default:
             console.log("error", response )

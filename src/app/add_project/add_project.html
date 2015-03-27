@@ -6,6 +6,7 @@
   <div  ng-repeat="photo in photos">
     <img src="{{ photo.url }}">
     <button ng-click="deletePhoto(photo)">Delete</button>
+    <button ng-click="setFeatured(photo)">Featured</button>
   </div>
 </div>
 
