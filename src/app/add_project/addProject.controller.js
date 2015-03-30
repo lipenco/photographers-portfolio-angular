@@ -83,17 +83,17 @@ angular.module('kingaFrontend')
 
     };
 
-    $scope.setFeatured = function(photo) {
+    $scope.setFeatured = function(photo, featured) {
       photo.project_id = $scope.project_id
-      photo.featured = true;
+      photo.featured = featured;
       kingaApi.Photo.setUpFeatured(photo)
       .success(function(response) {
         console.log(response)
-        // $scope.photos.splice( $scope.photos.indexOf(photo), 1 );
       }).error(function(body, status) {
 
       });
-    }
+    };
+
 
     $scope.asyncSavePhoto = function() {
       var params = {

@@ -15,7 +15,10 @@ api.service('Photo', function(http) {
   };
 
   Photo.setUpFeatured = function(params) {
-    console.log("gere")
+    return http.update('projects/'+ params.project_id + '/photos/' + params.id, params );
+  };
+
+  Photo.removeFeatured = function(params) {
     return http.update('projects/'+ params.project_id + '/photos/' + params.id, params );
   };
 
