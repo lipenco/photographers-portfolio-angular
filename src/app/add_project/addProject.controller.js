@@ -55,14 +55,29 @@ angular.module('kingaFrontend')
         project_date : $scope.project_date
       }
 
-      kingaApi.Project.create(params)
-      .success(function(response) {
-        $scope.project_id = response.project.id;
-        $scope.projectExist = false;
+      if ($stateParams.id != true) {
+        params.id = $stateParams.id
+        kingaApi.Project.update(params)
+        .success(function(response) {
+          $scope.project_id = response.project.id;
+          $scope.projectExist = false;
+        }).error(function(body, status) {
 
-      }).error(function(body, status) {
+        });
 
-      });
+      } else {
+        kingaApi.Project.create(params)
+        .success(function(response) {
+          $scope.project_id = response.project.id;
+          $scope.projectExist = false;
+
+        }).error(function(body, status) {
+
+        });
+
+      }
+
+
 
     };
 

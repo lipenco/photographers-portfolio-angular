@@ -20,6 +20,10 @@ api.service('Project', function(http) {
     return http.post('projects', params)
   }
 
+  Project.update= function(params) {
+    return http.update('projects/' + params.id, params)
+  }
+
   Project.delete = function(params) {
     return http.delete('projects/'+ params.id);
   }

@@ -1,7 +1,14 @@
-
-<h2> {{title}} </h2>
-<p> {{description}} </p>
-
-<div ng-repeat="photo in photos">
- <img src={{photo.url}}>
+<div class="small-10 columns">
+<h2 class="project-title-show"> {{title}} </h2>
+<p class="project-tags"> {{description}} </p>
+</div>
+<div class="small-2 columns">
+</div>
+<hr>
+<div class="small-10 columns">
+  <div class="show-photo" ng-repeat="photo in photos">
+    <img class="horizontal"src={{photo.url}}>
+  </div>
+</div>
+<div class="small-2 columns">
 </div>
