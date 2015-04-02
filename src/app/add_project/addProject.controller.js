@@ -8,7 +8,7 @@ angular.module('kingaFrontend')
       $scope.title = $stateParams.title;
       $scope.thumbnail = $stateParams.thumbnail;
       $scope.description = $stateParams.description;
-      $scope.project_date = $stateParams.project_date;
+      $scope.project_date = new Date($stateParams.project_date);
       $scope.url = null;
       $scope.horizontal = null;
       $scope.project_id = $stateParams.id;
@@ -37,7 +37,7 @@ angular.module('kingaFrontend')
     }
 
     $scope.attemptSavePhoto = function() {
-      $scope.asyncSavePhoto();
+      scope.asyncSavePhoto();
       return true
     }
 
@@ -48,11 +48,12 @@ angular.module('kingaFrontend')
         $scope.loginError = "title and thumbnail cannot be blank.";
         return;
       }
+
       var params = {
         title : $scope.title,
         thumbnail: $scope.thumbnail,
         description: $scope.description,
-        project_date : $scope.project_date
+        project_date : $('#project_date').val()
       }
 
       if ($stateParams.id != true) {

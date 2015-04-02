@@ -1,21 +1,18 @@
-
+</br>
+</br>
+</br>
+</br>
+<hr>
 <div class="container">
   <div class="row">
     <button ui-sref="addNewProject">add new project</button>
   </div>
   <div class="row">
-    <div class="container small-4 columns">
-      <div class="row">
-        <div class="large-12 columns panel" ng-if="project" ng-repeat="project in projects">
-            <img class="right" ng-src="assets/images/{{project.logo}}" alt="{{project.title}}">
-            <div class="caption">
-              <h3>{{project.title}} {{project.lenght}}</h3>
-              <p>{{project.description}}</p>
-            </div>
-            <button ng-click="delete(project)">Delete</button>
-            <button ng-click="edit(project)">Edit</button>
-        </div>
+      <div class="large-4 columns panel end text-center" ng-if="project" ng-repeat="project in projects | orderBy: 'project_date':true">
+          <h3>{{project.title}}</h3>
+          <img class="thumbnail" ng-src="{{project.thumbnail}}" alt="{{project.title}}">
+          <button ng-click="delete(project)">Delete</button>
+          <button ng-click="edit(project)">Edit</button>
       </div>
-    </div>
   </div>
 </div>

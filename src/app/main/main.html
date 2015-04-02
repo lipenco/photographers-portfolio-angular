@@ -7,8 +7,8 @@
 <hr>
   <div class="row">
     <div class="large-10 columns">
-      <div class="large-4 columns end thumbnail" ng-repeat="project in projects">
-        <a ui-sref="showProject(project)"> 
+      <div class="large-4 columns end thumbnail" ng-repeat="project in projects | orderBy: 'project_date':true">
+        <a ui-sref="showProject(project)">
           <img ng-src="{{project.thumbnail}}" alt="{{project.title}}">
           <span class="project-title">{{project.title}}</span>
         </a>
