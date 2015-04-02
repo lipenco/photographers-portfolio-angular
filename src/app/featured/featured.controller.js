@@ -4,9 +4,12 @@ angular.module('kingaFrontend')
   .controller('FeaturedCtrl', function ($scope, kingaApi) {
 
     kingaApi.Photo.getFeaturedPhotos()
-      .success(
-      function (response) {
+      .success(function (response) {
         $scope.photos = response.photos
+
+        setTimeout(function(){
+            $(".rslides").responsiveSlides();
+        })
       })
       .error(function (response){
         switch(response && response.code) {
@@ -15,5 +18,7 @@ angular.module('kingaFrontend')
             // $scope.errors.usernameErrors.push('An error occurred.');
         }
       });
+
+
 
   });

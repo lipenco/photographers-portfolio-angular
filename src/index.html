@@ -24,9 +24,17 @@
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    <div ng-include="'components/navbar/navbar.html'"></div>
-    <flash-messages></flash-messages>
-    <div class="row" ui-view></div>
+
+      <div class="small-2 columns">
+        <div ng-include="'components/navbar/navbar.html'"></div>
+      </div>
+      <div class="small-10 columns">
+        <flash-messages></flash-messages>
+        <div ui-view></div>
+      </div>
+
+
+
 
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
     <script>

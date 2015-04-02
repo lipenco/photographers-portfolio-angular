@@ -1,9 +1,12 @@
-<nav class="" ng-controller="NavbarCtrl">
-  <ul class="title-area">
-    <li class="name">
-      <a ui-sref="home" href=""><p>Kinga Michalska Photography</p></a>
-      <a ui-sref="projects" href=""><p>work</p></a>
-      <a ui-sref="contact" href=""><p>contact</p></a>
-    </li>
-  </ul>
-</nav>
+<div ng-controller="NavbarCtrl" class="row">
+  <div class="small-8 columns">
+    <img src="http://kingamichalska.com/img/logo3.png">
+  </div>
+  <nav class="small-4 columns">
+    <ul>
+      <li><a ui-sref="home">Start</a></li>
+      <li><a ui-sref="projects">Works</a></li>
+      <li><a ui-sref="contact">About</a></li>
+    </ul>
+  </nav>
+</div>
