@@ -3,7 +3,7 @@
 var Module = angular.module('datePicker', []);
 
 Module.constant('datePickerConfig', {
-  template: './app/lib/datepicker/templates/datepicker.html',
+  template: './lib/datepicker/templates/datepicker.html',
   view: 'month',
   views: ['year', 'month', 'date', 'hours', 'minutes'],
   step: 5

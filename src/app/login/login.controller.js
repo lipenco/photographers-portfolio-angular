@@ -38,11 +38,7 @@ angular.module('kingaFrontend')
           localStorage.setItem('auth_token', response.user.auth_token)
           $state.go('editProject');
 
-          $timeout(function() {
-            FlashMessages.dismissAll();
-          }, 4000);
-
-
+  
         }).error(function(body, status) {
 
         });

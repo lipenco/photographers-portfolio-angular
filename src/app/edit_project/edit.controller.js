@@ -2,11 +2,15 @@
 'use strict';
 
 angular.module('kingaFrontend')
-  .controller('EditCtrl', function ($scope, $state, $http, kingaApi) {
+  .controller('EditCtrl', function ($scope, $state, $http, kingaApi, FlashMessages) {
 
     $scope.delete = function(project) {
       kingaApi.Project.delete(project)
       .success(function (response) {
+        FlashMessages.add({
+          title: 'You deleted the project:' + project.title,
+          info: 'All photos belongign to this picture were also deleted'
+        });
         $scope.projects.splice( $scope.projects.indexOf(project), 1 );
       });
     }

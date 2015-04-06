@@ -11,7 +11,7 @@ module.exports = function(options) {
       path.extname = '.html';
     }
 
-    return gulp.src(options.src + '/{app,components}/**/*.hbs')
+    return gulp.src(options.src + '/{app,components,modules,directives,services,lib,config}/**/*.hbs')
       .pipe($.consolidate('handlebars')).on('error', options.errorHandler('Handlebars'))
       .pipe($.rename(renameToHtml))
       .pipe(gulp.dest(options.tmp + '/serve/'))

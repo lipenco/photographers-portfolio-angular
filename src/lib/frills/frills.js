@@ -6,12 +6,12 @@
 
     // Default settings
     var settings = $.extend({
-      "auto": true
+      "radius": 255
     }, options);
 
         var canvas;
         var context;
-        var RADIUS = 260;
+        var RADIUS = settings.radius;
         var RADIUS_SCALE = 1;
         var RADIUS_SCALE_MIN = 1;
         var RADIUS_SCALE_MAX = 1;

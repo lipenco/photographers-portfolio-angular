@@ -7,7 +7,9 @@ kf.controller('FlashMessageCtrl', function ($scope, $timeout, $rootScope, FlashM
   $scope.$watch('FlashMessages.messages', function (newVal, oldVal, scope) {
     if(newVal) {
       scope.messages = newVal;
-
+      $timeout(function() {
+        FlashMessages.dismissAll();
+      }, 4000);
 
     }
   });
