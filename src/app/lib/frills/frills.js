@@ -1,15 +1,14 @@
+"use strict";
+
 (function ($, window, i) {
 
   $.fn.frillsInit = function (options) {
-    console.log(this)
 
     // Default settings
     var settings = $.extend({
       "auto": true
     }, options);
 
-  
-        console.log(this)
         var canvas;
         var context;
         var RADIUS = 260;
@@ -26,7 +25,7 @@
         var erasingCounter = 0;
         var stopped = true;
         var overThumb = false;
-        var prevMouseX, prevMouseY;
+        var prevMouseX, prevMouseY, len;
 
 
         $(window).scroll(function () {
@@ -53,12 +52,12 @@
                 createParticles();
                 document.addEventListener("mousemove", moveParticles, false)
             }
-        }
+        };
 
         function setUpCanvasSize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-        }
+        };
 
         function moveParticles(n) {
             stopped = false;
@@ -72,7 +71,7 @@
             timeout = setTimeout(function () {
                 stopped = true
             }, 3000)
-        }
+        };
 
         function createParticles() {
             particles = [];
@@ -96,7 +95,7 @@
                 };
                 particles.push(p)
             }
-        }
+        };
 
 
 
@@ -109,7 +108,7 @@
             context.fillStyle = "rgba(239,239,239,1.0)";
             context.fillRect(0, 0, context.canvas.width, context.canvas.height);
             n++
-        }
+        };
 
         function drawParticles() {
             RADIUS_SCALE = Math.min(RADIUS_SCALE, RADIUS_SCALE_MAX);
@@ -153,9 +152,10 @@
                 context.arc((0.5 + o.position.x) | 0, (0.5 + o.position.y) | 0, o.size / 2, 0, Math.PI * 2, true);
                 context.fill()
             }
-        }
+        };
 
         setUpCanvas();
+        createParticles()
 
 
   };

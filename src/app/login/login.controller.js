@@ -26,8 +26,8 @@ angular.module('kingaFrontend')
           return;
         }
         var params = {
-          email: 'magda@gmail.com',
-          password: '12345678'
+          email: $scope.username,
+          password: $scope.password
         }
         kingaApi.User.getToken(params)
         .success(function(response) {

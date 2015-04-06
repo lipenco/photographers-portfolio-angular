@@ -5,8 +5,7 @@ api.service('User', function(http) {
   var User = {};
 
   User.getToken = function(params) {
-    console.log(params)
-    return http.post('sessions', {email: 'magda@gmail.com', password: '12345678'});
+    return http.post('sessions', params);
 
   }
 

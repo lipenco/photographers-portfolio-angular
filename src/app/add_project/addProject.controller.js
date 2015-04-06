@@ -10,9 +10,10 @@ angular.module('kingaFrontend')
       $scope.description = $stateParams.description;
       $scope.project_date = new Date($stateParams.project_date);
       $scope.url = null;
-      $scope.horizontal = null;
+      $scope.horizontal = 'true';
       $scope.project_id = $stateParams.id;
       $scope.photos = $stateParams.photos;
+
 
     } else {
       $scope.title = null;
@@ -20,7 +21,7 @@ angular.module('kingaFrontend')
       $scope.description = null;
       $scope.project_date = null;
       $scope.url = null;
-      $scope.horizontal = null;
+      $scope.horizontal = 'true';
       $scope.project_id = null;
       $scope.photos = [];
 
@@ -37,7 +38,7 @@ angular.module('kingaFrontend')
     }
 
     $scope.attemptSavePhoto = function() {
-      scope.asyncSavePhoto();
+      $scope.asyncSavePhoto();
       return true
     }
 
@@ -106,7 +107,6 @@ angular.module('kingaFrontend')
       .success(function(response) {
         console.log(response)
       }).error(function(body, status) {
-
       });
     };
 
@@ -124,14 +124,9 @@ angular.module('kingaFrontend')
         $scope.url = null;
         $scope.horizontal = null;
 
-      }).error(function(body, status) {
-
-      });
+      }).error(function(body, status) {});
 
     };
-
-
-
 
 
 

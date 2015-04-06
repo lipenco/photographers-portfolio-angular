@@ -4,6 +4,8 @@ angular.module('kingaFrontend')
   .controller('showProjectCtrl', function ($scope, $state, $stateParams, $http, kingaApi) {
 
     if ($stateParams.title == true) {
+      $scope.description = "Loading..."
+      $scope.title = "..."
 
       return kingaApi.Project.getProject($stateParams.id)
         .success(function (response) {

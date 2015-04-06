@@ -5,15 +5,17 @@
 <hr>
 
 <div  class="row">
-<div class="small-4 columns">
+<div class="small-4 columns text-center">
   <p ng-bind="title"></p>
   <img class="thumbnail" src="{{ thumbnail }}">
-  <p ng-bind="decription "></p>
-  <div  ng-repeat="photo in photos">
+  <p ng-bind="description"></p>
+
+  <div  class="panel" ng-repeat="photo in photos">
     <img src="{{ photo.url }}">
-    <button ng-click="deletePhoto(photo)">Delete</button>
-    <button ng-if="photo.featured" ng-click="setFeatured(photo, false)">Remove Fetured</button>
-    <button ng-if="!photo.featured" ng-click="setFeatured(photo, true)">Featured</button>
+
+    <button class="button small" ng-click="deletePhoto(photo)">Delete</button>
+    <button class="button small" ng-if="photo.featured" ng-click="setFeatured(photo, false)">Remove Fetured</button>
+    <button class="button small" ng-if="!photo.featured" ng-click="setFeatured(photo, true)">Featured</button>
   </div>
 </div>
 
@@ -65,13 +67,27 @@
               </div>
           </div>
           <div class="form-group">
-              <label for="username" class="col-sm-3">URL</label>
+              <label for="username" class="">URL</label>
               <input id="url" type="text" class="form-control" ng-model="url" ng-disabled="">
 
           </div>
           <div class="form-group" >
-              <label for="username" class="col-sm-3">Horizontal</label>
-              <input id="horizontal" type="text" class="form-control" ng-model="horizontal" ng-disabled="">
+
+            <div class="switch radius  small">
+              <span>Horizontal Photo</span>
+              <input id="exampleRadioSwitch1" type="radio" ng-model="horizontal" value="true" checked name="testGroup">
+              <label for="exampleRadioSwitch1"></label>
+            </div>
+
+            <div class="switch radius small">
+              <span>Vertical Photo</span>
+              <input id="exampleRadioSwitch2" type="radio" ng-model="horizontal" value="false" name="testGroup">
+              <label for="exampleRadioSwitch2"></label>
+
+            </div>
+
+              <!-- <label for="username" class="col-sm-3">Horizontal</label>
+              <input id="horizontal" type="text" class="form-control" ng-model="horizontal" ng-disabled=""> -->
           </div>
 
               <button type="submit" class="btn btn-default" ng-disabled="">Save Photo</button>

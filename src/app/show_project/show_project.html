@@ -5,10 +5,11 @@
 <div class="small-2 columns">
 </div>
 <hr>
-<div class="small-10 columns">
-  <div class="show-photo" ng-repeat="photo in photos">
-    <img class="horizontal"src={{photo.url}}>
+<div class="small-11 columns">
+  <div class="show-photo text-center" ng-repeat="photo in photos">
+    <img class="horizontal-{{photo.horizontal}}"src={{photo.url}}></div>
   </div>
+
 </div>
-<div class="small-2 columns">
+<div class="small-1 columns">
 </div>

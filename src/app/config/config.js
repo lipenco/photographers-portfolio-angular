@@ -1,3 +1,3 @@
 window.Options = {
-  API_SERVER: 'http://localhost:3000/',
+  API_SERVER: 'https://kingamichalska-api.herokuapp.com/',
 };
