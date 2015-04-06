@@ -6,6 +6,9 @@ angular.module('kingaFrontend')
     kingaApi.Project.getAllProjects()
       .success(function (response) {
         $scope.projects = response.projects
+        setTimeout(function(){
+          $('#frills').frillsInit();
+        });
       })
       .error(function (response){
         switch(response && response.code) {
