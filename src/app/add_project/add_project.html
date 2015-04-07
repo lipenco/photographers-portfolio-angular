@@ -5,24 +5,13 @@
 <hr>
 
 <div  class="row">
-<div class="small-4 columns text-center">
-  <p ng-bind="title"></p>
-  <img class="thumbnail" src="{{ thumbnail }}">
-  <p ng-bind="description"></p>
 
-  <div  class="panel" ng-repeat="photo in photos">
-    <img src="{{ photo.url }}">
 
-    <button class="button small" ng-click="deletePhoto(photo)">Delete</button>
-    <button class="button small" ng-if="photo.featured" ng-click="setFeatured(photo, false)">Remove Fetured</button>
-    <button class="button small" ng-if="!photo.featured" ng-click="setFeatured(photo, true)">Featured</button>
-  </div>
-</div>
+<div class="small-6 columns panel">
 
-<div class="small-4 columns">
-
-<form ng-show="projectExist()" role="form" class="form-horizontal"  ng-submit="attemptSave()"
+<form role="form" class="form-horizontal"  ng-submit="attemptSave()"
        method="post">
+       <p class="text-center"> Add new project </p>
 
       <div class="form-group">
           <div class="errors col-sm-offset-3 col-sm-6">
@@ -30,68 +19,43 @@
           </div>
       </div>
       <div class="form-group">
-          <label for="username" class="col-sm-3">Title</label>
+          <label for="title">Title</label>
           <input id="title" type="text" class="form-control" ng-model="title" ng-disabled="asyncSave.isLoading()">
       </div>
       <div class="form-group" >
-          <label for="username" class="col-sm-3">Thumbnail url</label>
+          <label for="thumbnail">Thumbnail url</label>
           <input id="thumbnail" type="text" class="form-control" ng-model="thumbnail" ng-disabled="asyncSave.isLoading()">
-
       </div>
       <div class="form-group" >
-          <label for="username" class="col-sm-3">Date (will determine the order)</label>
-          <!-- <input id="end" type="datetime" date-time ng-model="end" min-view="date"> -->
+          <label for="photoset_id">Photoset_id</label>
+          <input id="photoset_id" type="text" class="form-control" ng-model="photoset_id" ng-disabled="asyncSave.isLoading()">
+      </div>
+      <div class="form-group" >
+          <label for="username" >Date (will determine the order)</label>
           <input id="project_date" type="datetime" date-time ng-model="project_date" min-view="date">
       </div>
       <div class="form-group" >
-          <label for="username" class="col-sm-3">Description</label>
+          <label for="description">Description</label>
           <input id="description" type="text" class="form-control" ng-model="description" ng-disabled="asyncSave.isLoading()">
       </div>
-      <div class="form-group">
-          <button type="submit" class="btn btn-default" ng-disabled="asyncSave.isLoading()">{{asyncLogin.isLoading() ? 'Save...' : 'Save'}}</button>
+      <div class="form-group text-center">
+          <button type="submit" class="button success" ng-disabled="asyncSave.isLoading()">{{asyncLogin.isLoading() ? 'Save...' : 'Save'}}</button>
       </div>
+
   </form>
 
-  <button ng-hide="projectExist()" ng-click="addPhoto()">Add Photo</button>
+
 
 </div>
 
-  <div class="small-4 columns" ng-show="showPhotoInput()" >
+<div class="small-6 columns text-center panel">
+    <p ng-bind="title"></p>
+    <img class="thumbnail" src="{{ thumbnail }}">
+    <p ng-bind="description"></p>
+    <div class="text-center">
+      <button class="button success" ng-show="projectExist()" ng-click="syncPhotos()">Sync Photos From Flickr</button>
+    </div>
+</div>
 
-    <form  role="form" class="form-horizontal"  ng-submit="attemptSavePhoto()"
-           method="post">
 
-          <div class="form-group">
-              <div class="errors col-sm-offset-3 col-sm-6">
-                  <div class="tip">{{ photoError }}</div>
-              </div>
-          </div>
-          <div class="form-group">
-              <label for="username" class="">URL</label>
-              <input id="url" type="text" class="form-control" ng-model="url" ng-disabled="">
-
-          </div>
-          <div class="form-group" >
-
-            <div class="switch radius  small">
-              <span>Horizontal Photo</span>
-              <input id="exampleRadioSwitch1" type="radio" ng-model="horizontal" value="true" checked name="testGroup">
-              <label for="exampleRadioSwitch1"></label>
-            </div>
-
-            <div class="switch radius small">
-              <span>Vertical Photo</span>
-              <input id="exampleRadioSwitch2" type="radio" ng-model="horizontal" value="false" name="testGroup">
-              <label for="exampleRadioSwitch2"></label>
-
-            </div>
-
-              <!-- <label for="username" class="col-sm-3">Horizontal</label>
-              <input id="horizontal" type="text" class="form-control" ng-model="horizontal" ng-disabled=""> -->
-          </div>
-
-              <button type="submit" class="btn btn-default" ng-disabled="">Save Photo</button>
-
-      </form>
-  </div>
 </div>

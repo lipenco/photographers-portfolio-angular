@@ -6,7 +6,7 @@ nav {
   }
 
   ul {
-    padding-top:30%;
+    padding-top:40%;
     margin-left:0;
   }
 
@@ -20,5 +20,10 @@ nav {
 
      font-size: 11pt;
      font-weight: lighter;
+     &.active {
+       pointer-events: none;
+       cursor: default;
+       opacity: 0.3;
+     }
   }
 }

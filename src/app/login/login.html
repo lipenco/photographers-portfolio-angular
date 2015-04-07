@@ -31,7 +31,6 @@
           <label for="username" class="col-sm-3">password</label>
           <input id="password" type="text" class="form-control" ng-model="password" ng-disabled="asyncLogin.isLoading()">
           <i class="icon icon-password"></i>
-
       </div>
       <div class="form-group text-center">
           <button type="submit" class="button success" ng-disabled="asyncLogin.isLoading()">{{asyncLogin.isLoading() ? 'Logging in...' : 'Log in'}}</button>

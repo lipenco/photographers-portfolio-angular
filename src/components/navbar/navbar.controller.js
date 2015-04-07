@@ -2,5 +2,10 @@
 
 angular.module('kingaFrontend')
   .controller('NavbarCtrl', function ($scope) {
-    $scope.date = new Date();
+
+    $scope.selectedIndex = 0;
+
+    $scope.select = function(i) {
+      $scope.selectedIndex = i;
+    };
   });

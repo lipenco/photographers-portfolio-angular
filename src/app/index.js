@@ -34,7 +34,7 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
         authenticate: true
       })
       .state('addNewProject', {
-        url: '/add_project',
+        url: '/add_project?id',
         templateUrl: 'app/add_project/add_project.html',
         controller: 'AddProjectCtrl',
         authenticate: true,
@@ -44,7 +44,8 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
           'description' :true,
           'thumbnail': true,
           'project_date': true,
-          'photos' :true
+          'photos' :true,
+          'photoset_id':true
         }
       })
       .state('showProject',  {
