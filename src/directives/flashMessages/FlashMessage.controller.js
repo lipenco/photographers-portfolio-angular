@@ -9,7 +9,7 @@ kf.controller('FlashMessageCtrl', function ($scope, $timeout, $rootScope, FlashM
       scope.messages = newVal;
       $timeout(function() {
         FlashMessages.dismissAll();
-      }, 4000);
+      }, 10000);
 
     }
   });

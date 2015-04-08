@@ -45,7 +45,8 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
           'thumbnail': true,
           'project_date': true,
           'photos' :true,
-          'photoset_id':true
+          'photoset_id':true,
+          'flickr_name': true
         }
       })
       .state('showProject',  {
@@ -58,7 +59,8 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
           'id': true,
           'description' :true,
           'project_date': true,
-          'photos' :true
+          'photos' :true,
+          'flickr_name':true
         }
       });
 
