@@ -1,7 +1,7 @@
 "use strict";
 
 (function ($, window, i) {
-
+  console.log($.fn.frillsInit)
   $.fn.frillsInit = function (options) {
 
     // Default settings

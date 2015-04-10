@@ -3,7 +3,7 @@
 angular.module('kingaFrontend')
   .controller('MainCtrl', function ($scope, kingaApi) {
 
-    kingaApi.Project.getAllProjects()
+    kingaApi.Project.getPublishedProjects()
       .success(function (response) {
         $scope.projects = response.projects
         setTimeout(function(){
@@ -17,5 +17,7 @@ angular.module('kingaFrontend')
             // $scope.errors.usernameErrors.push('An error occurred.');
         }
       });
+
+
 
   });

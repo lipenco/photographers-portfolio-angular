@@ -8,6 +8,10 @@ api.service('Project', function(http) {
     return http.get('projects');
   };
 
+  Project.getPublishedProjects = function() {
+    return http.get('published')
+  }
+
   // Project.getFeaturedProjects = function(params) {
   //   return http.get('featured');
   // };

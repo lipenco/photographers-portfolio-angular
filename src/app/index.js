@@ -72,9 +72,6 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
     $httpProvider.defaults.headers.common.Authorization = localStorage.getItem('auth_token');
 });
 
-// kingaFrontend.run(function($http) {
-//   $http.defaults.headers.common.Authorization = localStorage.getItem('auth_token')
-// });
 
 kingaFrontend.run(function($rootScope, $state){
 
