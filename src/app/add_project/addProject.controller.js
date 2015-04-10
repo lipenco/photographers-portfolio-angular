@@ -34,6 +34,7 @@ angular.module('kingaFrontend')
 
 
 
+
     $scope.attemptSave = function() {
       $scope.asyncSave();
       return true
@@ -55,6 +56,8 @@ angular.module('kingaFrontend')
         description: $scope.description,
         project_date : $('#project_date').val(),
       }
+
+
 
       if ($stateParams.id != true) {
         params.id = $stateParams.id

@@ -62,10 +62,10 @@
         function moveParticles(n) {
             stopped = false;
             if (looping <= 0 && overThumb) {
-                looping = setInterval(drawParticles, 40)
+                looping = setInterval(drawParticles, 40);
             }
             if (!overThumb) {
-                stopped = true
+                stopped = true;
             }
             clearTimeout(timeout);
             timeout = setTimeout(function () {
@@ -93,7 +93,7 @@
                     fillColor: "rgba(" + n + ", " + n + ", " + n + ", 1.0)",
                     orbit: RADIUS * 0.5
                 };
-                particles.push(p)
+                particles.push(p);
             }
         };
 
@@ -107,7 +107,7 @@
             context.globalCompositeOperation = "destination-out";
             context.fillStyle = "rgba(239,239,239,1.0)";
             context.fillRect(0, 0, context.canvas.width, context.canvas.height);
-            n++
+            n++;
         };
 
         function drawParticles() {
@@ -126,7 +126,7 @@
                     erasingCounter = 0
                 }
                 return
-            }
+            };
             for (i = 0, len = particles.length; i < len; i++) {
                 var o = particles[i];
                 var n = {
@@ -151,11 +151,11 @@
                 context.stroke();
                 context.arc((0.5 + o.position.x) | 0, (0.5 + o.position.y) | 0, o.size / 2, 0, Math.PI * 2, true);
                 context.fill()
-            }
+            };
         };
 
         setUpCanvas();
-        createParticles()
+        createParticles();
 
 
   };

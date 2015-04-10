@@ -15,9 +15,21 @@ angular.module('kingaFrontend')
       });
     }
 
+    $scope.publish = function(project, publish) {
+      project.published = publish;
+      kingaApi.Project.update(project)
+      .success(function (response) {
+        FlashMessages.add({
+          title: 'You published:' + project.title,
+          info: 'Your audience can see it now'
+        });
+
+      });
+    };
+
     $scope.edit = function(project) {
       $state.go('addNewProject', project);
-    }
+    };
 
     kingaApi.Project.getAllProjects()
       .success(

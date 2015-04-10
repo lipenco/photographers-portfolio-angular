@@ -15,9 +15,11 @@
       <div class="panel">
         <p>{{project.title}}</p>
         <img class="thumbnail" ng-src="{{project.thumbnail}}" alt="{{project.title}}">
-        <ul class="button-group radius">
-        <li><button class="button small alert" ng-click="delete(project)">Delete</button></li>
+      <ul class="button-group radius">
+        <li><button class="button small alert" ng-click="delete(project)">X</button></li>
         <li><button class="button small" ng-click="edit(project)">Edit</button></li>
+        <li><button class="button small success" ng-if="!project.published" ng-click="publish(project, true)">Publish</button></li>
+        <li><button class="button small alert" ng-if="project.published" ng-click="publish(project, false)">Unpublish</button></li>
       </ul>
       </div>
     </div>
