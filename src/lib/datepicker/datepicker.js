@@ -1,6 +1,5 @@
 'use strict';
 (function(angular){
-'use strict';
 
 var Module = angular.module('datePicker', []);
 
@@ -447,9 +446,9 @@ Module.directive('dateTime', function ($compile, $document, $filter, dateTimeCon
   };
 });
 
-angular.module("datePicker").run(["$templateCache", function($templateCache) {
+angular.module('datePicker').run(['$templateCache', function($templateCache) {
 
-  $templateCache.put("templates/datepicker.html",
+  $templateCache.put('templates/datepicker.html',
     "<div ng-switch=\"view\">\n" +
     "  <div ng-switch-when=\"date\">\n" +
     "    <table>\n" +

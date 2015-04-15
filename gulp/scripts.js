@@ -9,7 +9,7 @@ module.exports = function(options) {
   gulp.task('scripts', function () {
     return gulp.src(options.src + '/{app,components,modules,directives,services,lib,config}/**/*.js')
       .pipe($.jshint())
-      .pipe($.jshint.reporter('jshint-stylish'))
+      // .pipe($.jshint.reporter('jshint-stylish'))
       .pipe(browserSync.reload({ stream: true }))
       .pipe($.size());
   });

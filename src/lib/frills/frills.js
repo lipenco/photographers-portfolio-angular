@@ -1,12 +1,12 @@
-"use strict";
+'use strict';
 
 (function ($, window, i) {
-  console.log($.fn.frillsInit)
+
   $.fn.frillsInit = function (options) {
 
     // Default settings
     var settings = $.extend({
-      "radius": 255
+      'radius': 255
     }, options);
 
         var canvas;
@@ -30,34 +30,34 @@
 
         $(window).scroll(function () {
             overThumb = false;
-            scrollCanvas()
+            scrollCanvas();
         });
 
-        $(".projectThumbnail").mouseover(function () {
+        $('.projectThumbnail').mouseover(function () {
             overThumb = true;
             mouseX = $(this).offset().left + $(this).width() * 0.5;
-            mouseY = $(this).offset().top - $(window).scrollTop() + $(this).height() * 0.5
+            mouseY = $(this).offset().top - $(window).scrollTop() + $(this).height() * 0.5;
         });
-        $(".projectThumbnail").mouseout(function () {
-            overThumb = false
+        $('.projectThumbnail').mouseout(function () {
+            overThumb = false;
         });
 
 
         function setUpCanvas() {
-            canvas = document.getElementById("frills-canvas");
-            if (canvas != undefined) {
+            canvas = document.getElementById('frills-canvas');
+            if (canvas !== undefined) {
                 context = canvas.getContext("2d");
                 setUpCanvasSize()
-                window.addEventListener("resize", setUpCanvasSize, false);
+                window.addEventListener('resize', setUpCanvasSize, false);
                 createParticles();
-                document.addEventListener("mousemove", moveParticles, false)
+                document.addEventListener('mousemove', moveParticles, false);
             }
-        };
+        }
 
         function setUpCanvasSize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
-        };
+        }
 
         function moveParticles(n) {
             stopped = false;
@@ -69,9 +69,9 @@
             }
             clearTimeout(timeout);
             timeout = setTimeout(function () {
-                stopped = true
-            }, 3000)
-        };
+                stopped = true;
+            }, 3000);
+        }
 
         function createParticles() {
             particles = [];
@@ -95,7 +95,7 @@
                 };
                 particles.push(p);
             }
-        };
+        }
 
 
 
@@ -104,20 +104,20 @@
             var n = 0;
             clearInterval(looping);
             looping = 0;
-            context.globalCompositeOperation = "destination-out";
-            context.fillStyle = "rgba(239,239,239,1.0)";
+            context.globalCompositeOperation = 'destination-out';
+            context.fillStyle = 'rgba(239,239,239,1.0)';
             context.fillRect(0, 0, context.canvas.width, context.canvas.height);
             n++;
-        };
+        }
 
         function drawParticles() {
             RADIUS_SCALE = Math.min(RADIUS_SCALE, RADIUS_SCALE_MAX);
-            context.globalCompositeOperation = "destination-out";
-            context.fillStyle = "rgba(235,235,235,0.17)";
+            context.globalCompositeOperation = 'destination-out';
+            context.fillStyle = 'rgba(235,235,235,0.17)';
             context.fillRect(0, 0, context.canvas.width, context.canvas.height);
             if (stopped == true) {
-                context.globalCompositeOperation = "lighter";
-                context.fillStyle = "rgba(239,239,239,0.1)";
+                context.globalCompositeOperation = 'lighter';
+                context.fillStyle = 'rgba(239,239,239,0.1)';
                 context.fillRect(0, 0, context.canvas.width, context.canvas.height);
                 erasingCounter += 40;
                 if (erasingCounter >= erasingTotal) {
@@ -141,7 +141,7 @@
                 o.position.x = Math.max(Math.min(o.position.x, canvas.width), 0);
                 o.position.y = Math.max(Math.min(o.position.y, canvas.height), 0);
                 o.size += (o.targetSize - o.size) * 0.05;
-                context.globalCompositeOperation = "source-over";
+                context.globalCompositeOperation = 'source-over';
                 context.beginPath();
                 context.fillStyle = o.fillColor;
                 context.strokeStyle = o.fillColor;
@@ -150,9 +150,9 @@
                 context.lineTo((0.5 + o.position.x) | 0, (0.5 + o.position.y) | 0);
                 context.stroke();
                 context.arc((0.5 + o.position.x) | 0, (0.5 + o.position.y) | 0, o.size / 2, 0, Math.PI * 2, true);
-                context.fill()
+                context.fill();
             };
-        };
+        }
 
         setUpCanvas();
         createParticles();
