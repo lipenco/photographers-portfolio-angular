@@ -9,7 +9,7 @@
 
   <div class="row">
     <div class="large-10 columns paddint-top">
-      <div class="large-4 columns end thumbnail" ng-repeat="project in projects | orderBy: 'project_date':true">
+      <div class="large-4 columns end thumbnail repeat-animation" ng-repeat="project in projects | orderBy: 'project_date':true">
         <a ui-sref="showProject(project)">
           <img class="projectThumbnail" ng-src="{{project.thumbnail}}" alt="{{project.title}}">
           <span class="project-title">{{project.title}}</span>
