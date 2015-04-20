@@ -6,6 +6,12 @@ angular.module('kingaFrontend')
     if ($stateParams.title == true) {
       $scope.description = "Loading..."
       $scope.title = "..."
+      setTimeout(function(){
+        var layzr = new Layzr({
+          threshold: 1000
+
+        });
+      });
 
       return kingaApi.Project.getProject($stateParams.id)
         .success(function (response) {

@@ -1,7 +1,9 @@
 {
   "name": "kingaFrontend",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "layzr.js": "^1.0.2"
+  },
   "scripts": {
     "test": "gulp test"
   },

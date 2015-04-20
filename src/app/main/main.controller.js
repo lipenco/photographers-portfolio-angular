@@ -8,6 +8,7 @@ angular.module('kingaFrontend')
         $scope.projects = response.projects
         setTimeout(function(){
           $('#frills').frillsInit();
+          var layzr = new Layzr({});
         });
       })
       .error(function (response){
