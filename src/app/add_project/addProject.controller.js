@@ -72,7 +72,7 @@ angular.module('kingaFrontend')
       } else {
         kingaApi.Project.create(params)
         .success(function(response) {
-          $scope.project_id = response.project.id;
+          $scope.project_id = response.id;
           $scope.thumbnail = response.project.thumbnail;
           $scope.projectExist = function() {
             return true;

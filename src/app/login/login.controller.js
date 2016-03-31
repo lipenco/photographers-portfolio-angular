@@ -35,10 +35,10 @@ angular.module('kingaFrontend')
             title: 'You are logged in!',
             info: 'Hello beutiful Kinga, add some awesome projects to your site'
           });
-          localStorage.setItem('auth_token', response.user.auth_token)
+          localStorage.setItem('auth_token', response.id)
           $state.go('editProject');
 
-  
+
         }).error(function(body, status) {
 
         });

@@ -5,8 +5,7 @@ api.service('User', function(http) {
   var User = {};
 
   User.getToken = function(params) {
-    return http.post('sessions', params);
-
+    return http.post('users/login', params);
   }
 
   User.delete = function(params) {
