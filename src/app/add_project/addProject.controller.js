@@ -1,13 +1,54 @@
-
 'use strict';
 
 angular.module('kingaFrontend')
-  .controller('AddProjectCtrl', function ($scope, $http, $state, $stateParams, kingaApi, FlashMessages) {
+  .controller('AddProjectCtrl', function ($scope, $http, $state, $stateParams, kingaApi, FlashMessages, FileUploader, $q) {
+    // url: "https://api.cloudinary.com/hpymbyjxq/image/upload"
+
+    $scope.uploader = new FileUploader({
+        url: "https://kinga-api.herokuapp.com/api/containers/storage/upload",
+        autoUpload: true,
+        queue: [],
+        onAfterAddingAll: function(addedItems) {
+          console.log(addedItems);
+          console.log("this.queue", this.queue);
+        },
+        onCompleteAll: function() {
+          var counter = 0;
+          var that = this;
+          savePhoto(counter);
+          function savePhoto(counter) {
+            var el = that.queue[counter]
+            return kingaApi.Photo.create({
+              project_id: $scope.project_id,
+              tempurl: el.file.name
+            }).then(function() {
+              counter = counter + 1;
+              savePhoto(counter);
+              console.log('Done' + el.file.name);
+            }, function() {
+              console.log("error")
+            });
+          }
+
+
+          // this.queue.forEach(function(x) {
+          //   return kingaApi.Photo.create({
+          //     project_id: $scope.project_id,
+          //     tempurl: x.file.name
+          //   })
+          // })
+        },
+        onSuccessItem: function(item, response, status, headers) {
+          // kingaApi.Photo.create({
+          //   project_id: $scope.project_id,
+          //   tempurl: item.file.name
+          // })
+        }
+    });
 
     if ($stateParams.id != true) {
       $scope.title = $stateParams.title;
       $scope.thumbnail = $stateParams.thumbnail;
-      $scope.flickr_name = $stateParams.flickr_name;
       $scope.description = $stateParams.description;
       $scope.project_date = new Date($stateParams.project_date);
       $scope.project_id = $stateParams.id;
@@ -21,7 +62,6 @@ angular.module('kingaFrontend')
     } else {
       $scope.title = null;
       $scope.thumbnail = null;
-      $scope.flickr_name = null;
       $scope.description = null;
       $scope.project_date = null;
       $scope.project_id = null;
@@ -52,7 +92,6 @@ angular.module('kingaFrontend')
 
       var params = {
         title : $scope.title,
-        flickr_name: $scope.flickr_name,
         description: $scope.description,
         project_date : $('#project_date').val(),
       }
@@ -64,7 +103,6 @@ angular.module('kingaFrontend')
         kingaApi.Project.update(params)
         .success(function(response) {
           $scope.project_id = response.project.id;
-          $scope.thumbnail = response.project.thumbnail;
         }).error(function(body, status) {
 
         });
@@ -73,7 +111,6 @@ angular.module('kingaFrontend')
         kingaApi.Project.create(params)
         .success(function(response) {
           $scope.project_id = response.id;
-          $scope.thumbnail = response.project.thumbnail;
           $scope.projectExist = function() {
             return true;
           };
@@ -87,38 +124,6 @@ angular.module('kingaFrontend')
     };
 
     $scope.syncPhotos = function() {
-      $scope.projectError = null;
-      var project_id = $scope.project_id;
-      $scope.photos = null;
-
-      FlashMessages.add({
-        title: 'It will take  fiew seconds',
-        info: 'please wait...',
-        type: 'info'
-      });
-
-      kingaApi.Flicker.getPhotosFromPhotoset(project_id)
-      .success(function(response) {
-        console.log(response)
-        $scope.photos = response.project.photos;
-        FlashMessages.add({
-          title: 'Great! You can see your photos below',
-          type: 'success'
-        });
-      }).error(function(body, status) {
-        switch(status) {
-          case 500:
-            console.log('error22')
-            FlashMessages.add({
-              title: 'Something went wrong',
-              info: 'please check it again',
-              type: 'error'
-            });
-            break;
-          default:
-            console.log("error", status )
-        }
-      });
     };
 
 

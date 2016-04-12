@@ -1,7 +1,7 @@
 'use strict';
 
-var kingaFrontend = angular.module('kingaFrontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router',  'kingaApi', 'datePicker'])
-kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider, $locationProvider) {
+var kingaFrontend = angular.module('kingaFrontend', ['ngAnimate', 'ngCookies', 'ngTouch', 'ngSanitize', 'ngResource', 'ui.router',  'kingaApi', 'datePicker', 'angularFileUpload'])
+kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider, $locationProvider, $qProvider) {
     $stateProvider
       .state('home', {
         url: '/',
