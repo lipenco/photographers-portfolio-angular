@@ -15,7 +15,7 @@ api.service('Photo', function(http) {
   };
 
   Photo.setUpFeatured = function(params) {
-    return http.update('projects/'+ params.project_id + '/photos/' + params.id, params );
+    return http.update('photos/' + params.id, params);
   };
 
   Photo.removeFeatured = function(params) {
@@ -23,7 +23,7 @@ api.service('Photo', function(http) {
   };
 
   Photo.getFeaturedPhotos = function() {
-    return http.get('featured');
+    return http.get('photos/', {filter: {where: {isFeatured: true}}});
   };
 
 

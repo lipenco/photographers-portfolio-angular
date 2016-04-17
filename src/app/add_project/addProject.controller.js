@@ -13,30 +13,21 @@ angular.module('kingaFrontend')
           console.log("this.queue", this.queue);
         },
         onCompleteAll: function() {
-          var counter = 0;
-          var that = this;
-          savePhoto(counter);
-          function savePhoto(counter) {
-            var el = that.queue[counter]
+          this.queue.forEach(function(x) {
             return kingaApi.Photo.create({
               project_id: $scope.project_id,
-              tempurl: el.file.name
-            }).then(function() {
-              counter = counter + 1;
-              savePhoto(counter);
-              console.log('Done' + el.file.name);
+              tempurl: x.file.name
+            }).then(function(response) {
+              $scope.photos.push(response.data)
+              FlashMessages.add({
+                title: 'You upladed photo',
+                info: 'hurrey'
+              });
+              this.queue = [];
             }, function() {
               console.log("error")
             });
-          }
-
-
-          // this.queue.forEach(function(x) {
-          //   return kingaApi.Photo.create({
-          //     project_id: $scope.project_id,
-          //     tempurl: x.file.name
-          //   })
-          // })
+          })
         },
         onSuccessItem: function(item, response, status, headers) {
           // kingaApi.Photo.create({
@@ -65,7 +56,7 @@ angular.module('kingaFrontend')
       $scope.description = null;
       $scope.project_date = null;
       $scope.project_id = null;
-      $scope.photos = null;
+      $scope.photos = [];
       $scope.projectError = null;
       $scope.projectExist = function() {
         return false;

@@ -43,14 +43,17 @@
 <div ng-show="!!project_id" class="small-6 columns text-center panel">
     <p ng-bind="title"></p>
     <div>
-        <input type="file" nv-file-select uploader="uploader"/><br/>
+        <input type="file" nv-file-select uploader="uploader" multiple/><br/>
         <ul>
             <li ng-repeat="item in uploader.queue">
                 Name: <span ng-bind="item.file.name"></span><br/>
-                <img src="https://kinga-api.herokuapp.com/" + item.file.name>
             </li>
         </ul>
     </div>
 </div>
 
+
+</div>
+<div class="row">
+  <admin-gallery></admin-gallery>
 </div>

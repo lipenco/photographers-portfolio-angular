@@ -11,7 +11,11 @@ api.service('http', function($http) {
   };
 
   http.get = function(path, data) {
-    return $http.get(Options.API_SERVER + path, data);
+    return $http({
+      url: Options.API_SERVER + path,
+      method: "GET",
+      params: data
+    });
   };
 
   http.delete = function(path, data) {

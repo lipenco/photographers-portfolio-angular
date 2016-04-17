@@ -7,8 +7,10 @@
   <ul class="button-group radius">
     <li><button class="button small alert" ng-click="deletePhoto(photo)">Delete</button></li>
 
-    <li ng-if="photo.featured"><button class="button small" ng-click="setFeatured(photo, false)">Unfeature</button></li>
-    <li ng-if="!photo.featured"><button class="button small" ng-click="setFeatured(photo, true)">Feature</button></li>
+    <li ng-if="photo.isFeatured"><button class="button small" ng-click="setFeatured(photo, false)">Unfeature</button></li>
+    <li ng-if="!photo.isFeatured"><button class="button small" ng-click="setFeatured(photo, true)">Feature</button></li>
+    <li ng-if="photo.isAvatar"><button class="button small" ng-click="setAvatar(photo, false)">Remove Avatar</button></li>
+    <li ng-if="!photo.isAvatar"><button class="button small" ng-click="setAvatar(photo, true)">Set Avatar</button></li>
   </ul>
 </div>
 

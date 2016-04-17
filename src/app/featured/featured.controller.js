@@ -5,7 +5,7 @@ angular.module('kingaFrontend')
 
     kingaApi.Photo.getFeaturedPhotos()
       .success(function (response) {
-        $scope.photos = response.photos
+        $scope.photos = response
 
         setTimeout(function(){
             $(".rslides").responsiveSlides();

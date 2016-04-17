@@ -15,17 +15,21 @@ angular.module('kingaFrontend')
       });
     }
 
-    $scope.publish = function(project, publish) {
-      project.published = publish;
+    $scope.publish = function(project, isPublished) {
+      project.isPublished = isPublished;
       kingaApi.Project.update(project)
       .success(function (response) {
         FlashMessages.add({
           title: 'You published:' + project.title,
           info: 'Your audience can see it now'
         });
-
-      });
+    });
     };
+
+    $scope.findAvatar = function(project) {
+      return project.photos.find(function(x) {
+          return (x.isAvatar === true)}).url;
+    }
 
     $scope.edit = function(project) {
       $state.go('addNewProject', project);
@@ -34,7 +38,7 @@ angular.module('kingaFrontend')
     kingaApi.Project.getAllProjects()
       .success(
       function (response) {
-        $scope.projects = response.projects
+        $scope.projects = response
       })
       .error(
       function (response){

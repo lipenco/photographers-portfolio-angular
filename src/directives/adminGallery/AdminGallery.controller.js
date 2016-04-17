@@ -14,9 +14,19 @@ kf.controller('AdminGalleryCtrl', function ($scope, $timeout, $rootScope, kingaA
   };
 
 
-  $scope.setFeatured = function(photo, featured) {
+  $scope.setFeatured = function(photo, isFeatured) {
     photo.project_id = $scope.project_id
-    photo.featured = featured;
+    photo.isFeatured = isFeatured;
+    kingaApi.Photo.setUpFeatured(photo)
+    .success(function(response) {
+      console.log(response)
+    }).error(function(body, status) {
+    });
+  };
+
+  $scope.setAvatar = function(photo, isAvatar) {
+    photo.project_id = $scope.project_id
+    photo.isAvatar = isAvatar;
     kingaApi.Photo.setUpFeatured(photo)
     .success(function(response) {
       console.log(response)

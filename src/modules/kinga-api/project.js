@@ -5,16 +5,17 @@ api.service('Project', function(http) {
   var Project = {};
 
   Project.getAllProjects = function(params) {
-    return http.get('projects');
+    return http.get('projects', {filter: {include: "photos"}});
   };
 
   Project.getPublishedProjects = function() {
-    return http.get('published')
+    return http.get('projects', {
+      filter: {
+        include: "photos",
+        where: {isPublished: true}
+      }});
   }
 
-  // Project.getFeaturedProjects = function(params) {
-  //   return http.get('featured');
-  // };
 
   Project.getProject = function(params) {
     return http.get('projects/' + params);
