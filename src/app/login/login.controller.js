@@ -33,7 +33,7 @@ angular.module('kingaFrontend')
         .success(function(response) {
           FlashMessages.add({
             title: 'You are logged in!',
-            info: 'Hello beutiful Kinga, add some awesome projects to your site'
+            info: 'Hello Kinga, add some awesome projects to your site'
           });
           localStorage.setItem('auth_token', response.id)
           $state.go('editProject');

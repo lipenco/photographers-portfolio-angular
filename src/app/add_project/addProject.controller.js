@@ -9,8 +9,10 @@ angular.module('kingaFrontend')
         autoUpload: true,
         queue: [],
         onAfterAddingAll: function(addedItems) {
-          console.log(addedItems);
-          console.log("this.queue", this.queue);
+          FlashMessages.add({
+            title: 'cierpliwości..',
+            info: 'loading..'
+          });
         },
         onCompleteAll: function() {
           this.queue.forEach(function(x) {
