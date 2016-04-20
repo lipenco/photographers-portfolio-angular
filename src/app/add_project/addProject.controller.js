@@ -25,11 +25,11 @@ angular.module('kingaFrontend')
                 title: 'You upladed photo',
                 info: 'hurrey'
               });
-              this.queue = [];
             }, function() {
               console.log("error")
             });
           })
+          this.queue = [];
         },
         onSuccessItem: function(item, response, status, headers) {
           // kingaApi.Photo.create({
