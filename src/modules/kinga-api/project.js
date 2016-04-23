@@ -18,7 +18,7 @@ api.service('Project', function(http) {
 
 
   Project.getProject = function(params) {
-    return http.get('projects/' + params);
+    return http.get('projects/' + params, {filter: {include: "photos"}});
   };
 
   Project.create = function(params) {

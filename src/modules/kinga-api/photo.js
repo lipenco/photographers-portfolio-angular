@@ -10,7 +10,6 @@ api.service('Photo', function(http) {
   };
 
   Photo.delete = function(params) {
-    console.log(params)
     return http.delete('projects/'+ params.project_id + '/photos/' + params.id);
   };
 

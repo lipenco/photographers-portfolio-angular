@@ -19,7 +19,6 @@ kf.controller('AdminGalleryCtrl', function ($scope, $timeout, $rootScope, kingaA
     photo.isFeatured = isFeatured;
     kingaApi.Photo.setUpFeatured(photo)
     .success(function(response) {
-      console.log(response)
     }).error(function(body, status) {
     });
   };
@@ -29,7 +28,6 @@ kf.controller('AdminGalleryCtrl', function ($scope, $timeout, $rootScope, kingaA
     photo.isAvatar = isAvatar;
     kingaApi.Photo.setUpFeatured(photo)
     .success(function(response) {
-      console.log(response)
     }).error(function(body, status) {
     });
   };

@@ -68,7 +68,6 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
 
 
     $urlRouterProvider.otherwise('/');
-    console.log(localStorage.getItem('auth_token'))
     $httpProvider.defaults.headers.common.Authorization = localStorage.getItem('auth_token');
 });
 

@@ -4,7 +4,6 @@ angular.module('kingaFrontend')
   .controller('MainCtrl', function ($scope, kingaApi) {
 
     $scope.findAvatar = function(project) {
-      console.log(project)
       return project.photos.find(function(x) {
           return (x.isAvatar === true)}).url;
     }
@@ -13,7 +12,14 @@ angular.module('kingaFrontend')
       .success(function (response) {
         $scope.projects = response
         setTimeout(function(){
-          $('#frills').frillsInit();
+          if (!window.frills ) {
+            console.log("iniy")
+            window.frills = F$({
+                element: $('.projectThumbnail'),
+            });
+          } else {
+            frills.restart()
+          }
           var layzr = new Layzr({});
         });
       })
