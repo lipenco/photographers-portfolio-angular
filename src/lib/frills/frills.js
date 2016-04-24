@@ -100,7 +100,7 @@
               }
               return
           };
-          for (i = 0, len = particles.length; i < len; i++) {
+          for (var i = 0, len = particles.length; i < len; i++) {
               var o = particles[i];
               var n = {
                   x: o.position.x,
