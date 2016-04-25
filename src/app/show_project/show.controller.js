@@ -18,7 +18,9 @@ angular.module('kingaFrontend')
 
       return kingaApi.Project.getProject($stateParams.id)
         .success(function (response) {
-          $scope.photos = response.photos
+          $scope.photos = response.photos.filter(function(x) {
+            return !x.isAvatar
+          })
           $scope.description = response.description
           $scope.title = response.title
         })
@@ -37,7 +39,9 @@ angular.module('kingaFrontend')
       };
       $scope.description = $stateParams.description
       $scope.title = $stateParams.title
-      $scope.photos = $stateParams.photos
+      $scope.photos = $stateParams.photos.filter(function(x) {
+        return !x.isAvatar
+      })
     };
 
 
