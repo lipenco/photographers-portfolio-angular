@@ -1,16 +1,19 @@
-<div ng-controller="NavbarCtrl" class="row">
-  <div class="small-8 columns">
-    <div style="padding-top: 31px">
+<div ng-controller="NavbarCtrl"  style="padding-top: 31px">
+  <div style="margin-bottom:10px; display: inline-block; width:111px">
+
     <p style="font-size:27px; margin: 0; padding:0; letter-spacing: 3px;line-height: 22px;">KINGA</p>
     <p style="font-size:17px; margin: 0; padding:0; line-height: 30px;">MICHALSKA</p>
     <p style="font-size:10px; margin: 0; padding:0; letter-spacing: 2px; line-height: 10px; font-weight: bold;">PHOTOGRAPHY</p>
+
   </div>
-  </div>
-  <nav class="small-4 columns">
-    <ul>
+  <div style="margin-bottom:10px; display: inline-block">
+  <nav >
+    <ul style="margin-top: -7px">
       <li><a ui-sref="home" ng-click="select(0)" ng-class="{active: 0 === selectedIndex}">Start</a></li>
       <li><a ui-sref="projects" ng-click="select(1)" ng-class="{active: 1 === selectedIndex}">Works</a></li>
       <li><a ui-sref="contact" ng-click="select(2)" ng-class="{active: 2 === selectedIndex}">About</a></li>
     </ul>
   </nav>
+</div>
+
 </div>

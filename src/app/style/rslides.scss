@@ -1,10 +1,12 @@
 .rslides {
-  position: relative;
+  position: fixed;
   list-style: none;
   overflow: hidden;
   width: 100%;
   padding: 0;
   margin: 0;
+  top: 0;
+  left: 200px;
   li {
     -webkit-backface-visibility: hidden;
     position: absolute;
@@ -24,5 +26,12 @@
     float: left;
     width: 100%;
     border: 0;
+  }
+}
+
+@media (max-width: 800px) {
+  .rslides {
+    top: 120px;
+    left: 0px;
   }
 }
