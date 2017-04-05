@@ -1,11 +1,18 @@
 'use strict';
 
 angular.module('kingaFrontend')
-  .controller('MainCtrl', function ($scope, kingaApi) {
+  .controller('MainCtrl', function ($scope,  $stateParams, kingaApi) {
 
     $scope.findAvatar = function(project) {
       return project.photos.find(function(x) {
           return (x.isAvatar === true)}).url;
+    }
+
+    $scope.toggledCategory = $stateParams.cat || '';
+    console.log($stateParams)
+
+    $scope.select = function(cat) {
+      return $stateParams.cat = cat
     }
 
     kingaApi.Project.getPublishedProjects()

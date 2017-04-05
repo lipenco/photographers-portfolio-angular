@@ -1,10 +1,6 @@
-</br>
-</br>
-</br>
-</br>
-<hr>
+
 <button class="button" ui-sref="admin">go back to projects list</button>
-<div  class="row">
+<div  class="row" style="padding: 30px">
 
 <div class="small-6 columns panel">
 
@@ -28,6 +24,15 @@
       <div class="form-group" >
           <label for="description">Description</label>
           <textarea  ng-model="description" rows="4"></textarea>
+      </div>
+      <div class="form-group" >
+        <label for="category">Category</label>
+        <ul class="button-group radius">
+          <li><button class="button small" ng-click="setCategory('events')" ng-class="{success: category === 'events'}">Events</button></li>
+          <li><button class="button small" ng-click="setCategory('people')" ng-class="{success: category === 'people'}">People</button></li>
+          <li><button class="button small" ng-click="setCategory('dance')" ng-class="{success: category === 'dance'}">Dance</button></li>
+          <li><button class="button small" ng-click="setCategory('personal')" ng-class="{success: category === 'personal'}">Personal</button></li>
+        </ul>
       </div>
       <div class="form-group text-center">
           <button type="submit" class="button success" ng-disabled="asyncSave.isLoading()">{{!!project_id ? 'Update' : 'Save'}}</button>
@@ -53,6 +58,6 @@
 
 
 </div>
-<div class="row">
+<div class="row" style="padding: 30px">
   <admin-gallery></admin-gallery>
 </div>

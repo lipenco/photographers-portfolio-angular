@@ -46,6 +46,7 @@ angular.module('kingaFrontend')
       $scope.project_date = new Date($stateParams.project_date);
       $scope.project_id = $stateParams.id;
       $scope.photos = $stateParams.photos;
+      $scope.category = $stateParams.category;
       $scope.projectError = null;
       $scope.projectExist = function() {
         return true;
@@ -58,6 +59,7 @@ angular.module('kingaFrontend')
       $scope.description = null;
       $scope.project_date = null;
       $scope.project_id = null;
+      $scope.category = null;
       $scope.photos = [];
       $scope.projectError = null;
       $scope.projectExist = function() {
@@ -67,6 +69,9 @@ angular.module('kingaFrontend')
 
 
 
+    $scope.setCategory = function(cat) {
+      return $scope.category = cat;
+    }
 
     $scope.attemptSave = function() {
       $scope.asyncSave();
@@ -86,6 +91,7 @@ angular.module('kingaFrontend')
       var params = {
         title : $scope.title,
         description: $scope.description,
+        category: $scope.category,
         project_date : $('#project_date').val(),
       }
 
@@ -95,7 +101,7 @@ angular.module('kingaFrontend')
         params.id = $stateParams.id
         kingaApi.Project.update(params)
         .success(function(response) {
-          $scope.project_id = response.project.id;
+          $scope.project_id = response.id;
         }).error(function(body, status) {
 
         });

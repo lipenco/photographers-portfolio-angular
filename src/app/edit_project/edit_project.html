@@ -1,8 +1,3 @@
-</br>
-</br>
-</br>
-</br>
-<hr>
 
   <div class="row">
   </br>
@@ -21,6 +16,7 @@
         <li><button class="button small success" ng-if="!project.isPublished" ng-click="publish(project, true)">Publish</button></li>
         <li><button class="button small alert" ng-if="project.isPublished" ng-click="publish(project, false)">Unpublish</button></li>
       </ul>
+      <p>category: {{project.category}}</p>
       </div>
     </div>
   </div>

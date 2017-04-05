@@ -10,7 +10,7 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
         authenticate: false
       })
       .state('projects', {
-        url: '/projects',
+        url: '/projects?cat',
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl',
         authenticate: false
@@ -42,6 +42,7 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
           'title': true,
           'id': true,
           'description' :true,
+          'category': true,
           'thumbnail': true,
           'project_date': true,
           'photos' :true,
@@ -57,6 +58,7 @@ kingaFrontend.config(function ($httpProvider, $stateProvider, $urlRouterProvider
         params: {
           'title': true,
           'id': true,
+          'category': true,
           'description' :true,
           'project_date': true,
           'photos' :true,

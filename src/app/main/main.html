@@ -5,11 +5,23 @@
 </br>
 
 
-<hr>
-
   <div class="row">
-    <div class="large-10 columns paddint-top">
-      <div class="large-4 columns end thumbnail repeat-animation" ng-repeat="project in projects | orderBy: 'project_date':true">
+    <div class="large-3 columns">
+      <nav>
+        <ul style="padding-top: 0; padding-left: 20px">
+          <li><a ui-sref="projects({cat: ''})" ng-class="{active: toggledCategory === ''}">all</a></li>
+          <li><a ui-sref="projects({cat: 'events'})" ng-class="{active: toggledCategory === 'events'}">events</a></li>
+          <li><a ui-sref="projects({cat:'people'})" ng-class="{active: toggledCategory === 'people'}">people</a></li>
+          <li><a ui-sref="projects({cat:'dance'})" ng-class="{active: toggledCategory === 'dance'}">dance</a></li>
+          <li><a ui-sref="projects({cat:'personal'})" ng-class="{active: toggledCategory === 'personal'}">personal</a></li>
+        </ul>
+      </nav>
+
+    </div>
+
+    <div class="large-9 columns padding-top">
+      <div class="large-4 columns end thumbnail repeat-animation" ng-repeat="project in projects | orderBy: 'project_date':true
+      | filter:{category: toggledCategory || ''}">
         <a ui-sref="showProject(project)">
           <!-- <img class="projectThumbnail" ng-src="{{project.thumbnail}}" alt="{{project.title}}"> -->
           <img  class="projectThumbnail"  src="./assets/images/placeholder.gif"
@@ -19,6 +31,4 @@
         </a>
       </div>
     </div>
-    <div class="large-2 columns"></div>
-
   </div>
