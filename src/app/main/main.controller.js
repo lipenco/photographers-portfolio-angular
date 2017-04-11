@@ -9,11 +9,12 @@ angular.module('kingaFrontend')
     }
 
     $scope.toggledCategory = $stateParams.cat || '';
-    console.log($stateParams)
 
     $scope.select = function(cat) {
       return $stateParams.cat = cat
     }
+
+    $scope.projects = [];
 
     kingaApi.Project.getPublishedProjects()
       .success(function (response) {
