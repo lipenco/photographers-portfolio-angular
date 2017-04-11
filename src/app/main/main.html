@@ -27,10 +27,12 @@
       | filter:{category: toggledCategory || ''}">
         <a ui-sref="showProject(project)">
           <!-- <img class="projectThumbnail" ng-src="{{project.thumbnail}}" alt="{{project.title}}"> -->
-          <img style="width: 100%; height:auto;" class="projectThumbnail"  src="./assets/images/flickr.svg"
-              data-layzr="{{findAvatar(project)}}"  >
+          <img class="projectThumbnail"
+          ng-src="{{findAvatar(project)}}"
+          loading-src="{{'./assets/images/flickr.svg'}}"/>
 
-          <span class="project-title">{{project.title}}</span>
+
+          <div class="project-title">{{project.title}}</div>
         </a>
       </div>
     </div>

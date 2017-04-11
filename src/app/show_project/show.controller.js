@@ -9,12 +9,7 @@ angular.module('kingaFrontend')
       if (window.frills) {
         window.frills.stop();
       };
-      setTimeout(function(){
-        var layzr = new Layzr({
-          threshold: 100
 
-        });
-      });
 
       return kingaApi.Project.getProject($stateParams.id)
         .success(function (response) {

@@ -14,6 +14,11 @@ angular.module('kingaFrontend')
       return $stateParams.cat = cat
     }
 
+    $scope.findAvatarLoad = function(el) {
+      console.log(el);
+      return;
+    }
+
     $scope.projects = [];
 
     kingaApi.Project.getPublishedProjects()
@@ -21,14 +26,12 @@ angular.module('kingaFrontend')
         $scope.projects = response
         setTimeout(function(){
           if (!window.frills ) {
-            console.log("iniy")
             window.frills = F$({
                 element: $('.projectThumbnail'),
             });
           } else {
             frills.restart()
           }
-          var layzr = new Layzr({});
         });
       })
       .error(function (response){
